@@ -6,10 +6,14 @@ import os
 import tempfile
 from telebot import types
 
-TELEGRAM_BOT_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'
-YA_MUSIC_TOKEN = 'TOKEN_YA.MUSIC'
+TG_TOKEN = open("TG_TOKEN.txt")
+bot = telebot.TeleBot(TG_TOKEN.read())
+TG_TOKEN.close()
 
-bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
+YA_TOKEN = open("YA_TOKEN.txt")
+YA_MUSIC_TOKEN = YA_TOKEN.read()
+YA_TOKEN.close()
+
 
 def get_reversed_tracks(client):
     tracks = client.users_likes_tracks()
